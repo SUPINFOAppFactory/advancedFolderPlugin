@@ -1,0 +1,40 @@
+<div class="holder padding-zero">
+    <div class="media-center-plugin layout3 text-overlay">
+        <div ng-if="!WidgetHome.noCarouselBody" class="plugin-banner clearfix text-overlay">
+            <div id="carousel" build-fire-carousel=""
+                 ng-style="WidgetHome.info.data.content.images.length > 0 ? {'min-height': (9 * deviceWidth / 16) + 'px' } : {}"></div>
+        </div>
+        <div ng-if="!WidgetHome.noCarouselBody" ng-class="WidgetHome.info.data.content.description ? 'padded':'wyswig-pading'" class=" text-left text-overlay" ng-if="WidgetHome.showDescription()">
+            <p class="margin-bottom-zero"
+               ng-bind-html="WidgetHome.info.data.content.description | safeHtml">
+            </p>
+        </div>
+        <div>
+            <div ng-repeat="plugin in  WidgetHome.info.data.content.entity">
+                <div ng-click="WidgetHome.navigateToPlugin(plugin)" ng-if="plugin.data">
+                <div class="plugin-banner clearfix border-bottom-grey">
+                    <div class="plugin-slide text-center">
+                        <img load-image="16x9" data-final-src="{{plugin.data.iconUrl}}" crop-width="450" crop-height="254" crop-type="crop" ng-if="plugin.data.iconUrl" />
+                        <img load-image="16x9" data-final-src="../../../styles/media/holder-16x9.png" ng-if="plugin.data.iconClassName" />
+                    </div>
+                </div>
+                <div class="padded text-left">
+                    <a class="text-primary" ng-show="!WidgetHome.info.data.design.hideText">{{ plugin.data.title }}</a>
+                </div>
+                </div>
+                <div  ng-click="WidgetHome.goToFolder(plugin)" ng-if="plugin.items">
+                    <div class="plugin-banner clearfix border-bottom-grey">
+                        <div class="plugin-slide text-center">
+                            <img ng-if="plugin.fileUrl" load-image="16x9" data-final-src="{{ plugin.fileUrl }}" crop-width="450" crop-height="254" crop-type="crop" />
+                            <img load-image="16x9" data-final-src="../../../styles/media/holder-16x9.png" ng-if="! plugin.fileUrl && plugin.items.length!=0" />
+	                        <img load-image="16x9" data-final-src="../../../styles/media/holder-16x9.png" ng-if="! plugin.fileUrl && plugin.items.length==0" />	                       
+                        </div>
+                    </div>
+                    <div class="padded text-left">
+                        <a class="text-primary" ng-show="!WidgetHome.info.data.design.hideText'">{{ plugin.title }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

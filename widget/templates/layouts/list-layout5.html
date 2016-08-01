@@ -1,0 +1,41 @@
+<div class="holder padding-zero">
+    <div class="media-center-plugin list-layout layout4 text-overlay">
+        <div ng-if="!WidgetHome.noCarouselBody" class="media-center-banner clearfix  text-overlay">
+            <div id="carousel" build-fire-carousel="" ng-style="WidgetHome.info.data.content.images.length > 0 ? {'min-height': (9 * deviceWidth / 16) + 'px' } : {}"></div>
+        </div>
+        <div ng-if="!WidgetHome.noCarouselBody" ng-class="WidgetHome.info.data.content.description ? 'padded':'wyswig-pading'" class="text-left padding-bottom-zero clearfix text-overlay" >
+            <p ng-if="WidgetHome.showDescription()" ng-bind-html="WidgetHome.info.data.content.description | safeHtml"></p>
+        </div>
+        <div class="padded padding-top-zero padding-bottom-zero">
+            <div class="list-layout layout5">
+                <div class="row">
+                    <div  class="list-item col-xs-6 padding-zero has-info-bar pull-left" ng-repeat="plugin in WidgetHome.info.data.content.entity">
+                        <div ng-click="WidgetHome.navigateToPlugin(plugin.data)" class="list-item-media text-center" ng-if="plugin.data">
+                            <div class="list-media-holder">
+                                <img load-image="1x1" data-final-src="{{plugin.data.iconUrl}}" ng-if="plugin.data.iconUrl" crop-width="320" crop-height="320" crop-type="crop" />
+								<img load-image="1x1" data-final-src="../../../styles/media/holder-1x1.png" ng-if="plugin.data.iconClassName" />
+                            </div>
+                            <div class="info-bar titleBarBackgroundTheme" ng-show="!WidgetHome.info.data.design.hideText">
+                                <p class="margin-bottom-zero col-md-12 ellipsis titleBarTextAndIcons" ng-show="!WidgetHome.info.data.design.hideText">
+                                    {{ plugin.data.title }}
+                                </p>
+                            </div>
+                        </div>
+                        <div  ng-click="WidgetHome.goToFolder(plugin)" class="list-item-media text-center" ng-if="plugin.items">
+                            <div class="list-media-holder" style=" height: 171px; ">
+                                <img  ng-if="plugin.fileUrl" load-image="1x1" data-final-src="{{plugin.fileUrl}}" crop-width="320" crop-height="320" crop-type="crop">
+	                            <img load-image="1x1" data-final-src="../../../styles/media/holder-1x1.png" ng-if="! plugin.fileUrl && plugin.items.length!=0" />
+		                        <img load-image="1x1" data-final-src="../../../styles/media/holder-1x1.png" ng-if="! plugin.fileUrl && plugin.items.length==0" />	                       
+                            </div>
+                            <div class="info-bar titleBarBackgroundTheme" ng-show="!WidgetHome.info.data.design.hideText">
+                                <p class="margin-bottom-zero col-md-12 ellipsis titleBarTextAndIcons" >
+                                    {{ plugin.title }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

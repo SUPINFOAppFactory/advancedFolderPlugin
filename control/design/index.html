@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="advancedFolderPluginDesign">
+<head lang="en">
+    <!-- CSS -->
+    <link href="../../../../styles/helper.css" rel="stylesheet">
+    <link href="../../../../styles/siteIcons.css" rel="stylesheet">
+
+
+    <!-- JS -->
+    <script src="../../../../scripts/buildfire.js"></script>
+    <script src="../../../../scripts/angular/angular.min.js"></script>
+    <script src="../../../../scripts/angular/angular-animate.min.js"></script>
+    <script src="../../../../scripts/angular/ui-bootstrap.min.js"></script>
+    <script src="../../../../scripts/buildfire/components/images/thumbnail.js"></script>
+    <script src="services.js"></script>
+    <script src="enums.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/design.home.controller.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body ng-controller="DesignHomeCtrl as DesignHome">
+<div class="item row clearfix">
+    <div class="labels col-md-3 padding-right-zero pull-left">
+        <span>List Layout</span>
+    </div>
+    <div class="main col-md-9 pull-right">
+        <div class="screens clearfix">
+            <div class="screen layouticon pull-left">
+                <a class="border-grey border-radius-three default-background-hover text-center">
+                    <span class="add-icon hidden">+</span>
+                    <img ng-src="assets/images/{{DesignHome.info.data.design.itemListLayout}}.png">
+                </a>
+            </div>
+            <div class="screen layoutgrid pull-right margin-left-zero border-grey border-radius-three">
+                <a data-number="{{$index + 1}}" ng-repeat="layout in DesignHome.layouts" class="layouticon border-grey border-radius-three default-background-hover text-center" ng-click="DesignHome.changeLayout(layout.name)">
+                    <img ng-src="assets/images/{{layout.name}}.png">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="item clearfix row margin-bottom-twenty">
+    <div class="labels col-md-3 padding-right-zero pull-left">
+        <span>Background Image</span>
+    </div>
+    <div class="main col-md-9 pull-right">
+        <div class="screens clearfix">
+            <div class="screens flexalign clearfix">
+                <div class="screen mostdevices pull-left text-center">
+                    <a class="border-radius-three default-background-hover" ng-click="DesignHome.changeBackground('i3x2')">
+                        <span ng-hide="DesignHome.info.data.design.bgImage.i3x2" class="add-icon">+</span>
+                        <img ng-show="DesignHome.info.data.design.bgImage.i3x2" ng-src="{{DesignHome.resizeImage(DesignHome.info.data.design.bgImage.i3x2)}}">
+                    </a>
+                    <label>3:2</label>
+                    <label class="secondary">640x960</label>
+                    <span class="tip btn-info-icon btn-primary transition-third" tooltip="iPhone 3, 4, and some Android devices will fall into this category." tooltip-placement="top"></span>
+                    <span class="icon btn-icon btn-delete-icon btn-danger transition-third" ng-click="DesignHome.deleteBackground('i3x2')" ng-show="DesignHome.info.data.design.bgImage.i3x2"></span>
+                </div>
+                <div class="screen iphone pull-left text-center">
+                    <a class="border-radius-three default-background-hover" ng-click="DesignHome.changeBackground('i16x9')">
+                        <span ng-hide="DesignHome.info.data.design.bgImage.i16x9" class="add-icon">+</span>
+                        <img ng-show="DesignHome.info.data.design.bgImage.i16x9" ng-src="{{DesignHome.resizeImage(DesignHome.info.data.design.bgImage.i16x9)}}">
+                    </a>
+                    <label>16:9</label>
+                    <label class="secondary">750x1294</label>
+                        <span class="tip btn-info-icon btn-primary transition-third" tooltip="iPhone 5, 6, 6 Plus, and some Android devices will fall into this category."
+                              tooltip-placement="top"></span>
+                    <span class="icon btn-icon btn-delete-icon btn-danger transition-third" ng-click="DesignHome.deleteBackground('i16x9')" ng-show="DesignHome.info.data.design.bgImage.i16x9"></span>
+                </div>
+                <div class="screen ipads pull-left text-center">
+                    <a class="border-radius-three default-background-hover" ng-click="DesignHome.changeBackground('i4x3')">
+                        <span ng-hide="DesignHome.info.data.design.bgImage.i4x3" class="add-icon">+</span>
+                        <img ng-show="DesignHome.info.data.design.bgImage.i4x3" ng-src="{{DesignHome.resizeImage(DesignHome.info.data.design.bgImage.i4x3)}}">
+                    </a>
+                    <label>4:3</label>
+                    <label class="secondary">1536x2048</label>
+                    <span class="tip btn-info-icon btn-primary transition-third" tooltip="iPads and some Android devices will fall into this category." tooltip-placement="top"></span>
+                    <span class="icon btn-icon btn-delete-icon btn-danger transition-third" ng-click="DesignHome.deleteBackground('i4x3')" ng-show="DesignHome.info.data.design.bgImage.i4x3"></span>
+                </div>
+                <div class="screen tablets pull-left text-center">
+                    <a class="border-radius-three default-background-hover" ng-click="DesignHome.changeBackground('i16x10')">
+                        <span ng-hide="DesignHome.info.data.design.bgImage.i16x10" class="add-icon">+</span>
+                        <img ng-show="DesignHome.info.data.design.bgImage.i16x10" ng-src="{{DesignHome.resizeImage(DesignHome.info.data.design.bgImage.i16x10)}}">
+                    </a>
+                    <label>16:10</label>
+                    <label class="secondary">1600x2560</label>
+                    <span class="tip btn-info-icon btn-primary transition-third" tooltip="Some Android devices and tablets will fall into this category." tooltip-placement="top"></span>
+                    <span class="icon btn-icon btn-delete-icon btn-danger transition-third" ng-click="DesignHome.deleteBackground('i16x10')" ng-show="DesignHome.info.data.design.bgImage.i16x10"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="">
+	<hr>
+	<div class="item row clearfix">
+	    <div class="labels col-md-3 padding-right-zero pull-left">
+	        <span>Hide Text</span>
+	    </div>
+	    <div class="main col-md-9 pull-right">
+			<div class="radio radio-primary radio-inline">
+				<input id="showText" type="radio" name="toggleText" checked="" ng-model="DesignHome.info.data.design.hideText" ng-value="false">
+				<label for="showText">False</label>
+			</div>
+			<div class="radio radio-primary radio-inline">
+				<input id="hideText" type="radio" name="toggleText" ng-model="DesignHome.info.data.design.hideText" ng-value="true">
+				<label for="hideText">True</label>
+			</div>
+			<p class="info margin-top-fifteen">Note: This will allow you to hide the text on specific layouts.</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

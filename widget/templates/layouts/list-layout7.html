@@ -1,0 +1,44 @@
+    <div class="holder padding-zero">
+    <div class="media-center-plugin list-layout layout4 text-overlay">
+        <div ng-if="!WidgetHome.noCarouselBody" class="media-center-banner clearfix  text-overlay">
+            <div id="carousel" build-fire-carousel=""
+                 ng-style="WidgetHome.info.data.content.images.length > 0 ? {'min-height': (9 * deviceWidth / 16) + 'px' } : {}"></div>
+        </div>
+        <div ng-if="!WidgetHome.noCarouselBody" ng-class="WidgetHome.info.data.content.description ? 'padded':'wyswig-pading'" class="text-left padding-bottom-zero clearfix text-overlay" >
+            <p ng-if="WidgetHome.showDescription()" ng-bind-html="WidgetHome.info.data.content.description | safeHtml"></p>
+        </div>
+        <div class="padded padding-top-zero text-overlay" style="padding: 0;">
+
+            <div class="plugin-banner has-info-bar clearfix" ng-repeat="plugin in  WidgetHome.info.data.content.entity">
+                <div ng-click="WidgetHome.navigateToPlugin(plugin)" ng-if="plugin.data">
+                    <div class="plugin-banner clearfix">
+                        <div class="plugin-slide text-center">
+                            <div class="backgroundLayer" style="background:url('{{ WidgetHome.cropImage(plugin.data.iconUrl? plugin.data.iconUrl : 'http://www.placehold.it/1024x420', {width: 512, height: 210}) }}');'height':'146px'"></div>
+                           <!-- <img lazy-img="{{ WidgetHome.cropImage( 'http://www.placehold.it/1024x420', {width: 512, height: 210}) }}" ng-if="!(plugin.data.iconUrl && plugin.data.iconClassName)">-->
+                            <img load-image="239x1" data-final-src="{{ plugin.data.iconUrl }}"  crop-width="512" crop-height="210" crop-type="crop" ng-if="plugin.data.iconUrl">
+                            <img load-image="239x1" data-final-src="../../../styles/media/holder-239x1.png" ng-if="plugin.data.iconClassName" />
+                        </div>
+                        <div class="info-bar blackBackgroundTheme" ng-show="!WidgetHome.info.data.design.hideText">
+                            <p class="margin-bottom-zero col-md-12 ellipsis whiteTheme">{{ plugin.data.title }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-click="WidgetHome.goToFolder(plugin)" ng-if="plugin.items">
+                    <div class="plugin-banner clearfix">
+                        <div class="plugin-slide text-center">
+                            <div class="backgroundLayer" style="background:url('{{ cropImage(plugin.iconUrl? plugin.iconUrl : 'http://www.placehold.it/1024x420', {width: 512, height: 210}) }}');"></div>
+                            <img ng-if="plugin.fileUrl" load-image="239x1" data-final-src="{{ plugin.fileUrl }}" crop-width="512" crop-height="210" crop-type="crop">
+                            <img load-image="239x1" data-final-src="../../../styles/media/holder-239x1.png" ng-if="! plugin.fileUrl && plugin.items.length!=0" />
+	                        <img load-image="239x1" data-final-src="../../../styles/media/holder-239x1.png" ng-if="! plugin.fileUrl && plugin.items.length==0" />	                       
+                        </div>
+                        <div class="info-bar blackBackgroundTheme" ng-show="!WidgetHome.info.data.design.hideText">
+                            <p class="margin-bottom-zero col-md-12 ellipsis whiteTheme" >{{ plugin.title }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

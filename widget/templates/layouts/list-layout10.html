@@ -1,0 +1,54 @@
+    <div class="holder padding-zero">
+    <div class="media-center-plugin list-layout layout4 text-overlay">
+        <div ng-if="!WidgetHome.noCarouselBody" class="media-center-banner clearfix  text-overlay">
+            <div id="carousel" build-fire-carousel=""
+                 ng-style="WidgetHome.info.data.content.images.length > 0 ? {'min-height': (9 * deviceWidth / 16) + 'px' } : {}"></div>
+        </div>
+        <div ng-if="!WidgetHome.noCarouselBody" ng-class="WidgetHome.info.data.content.description ? 'padded':'wyswig-pading'" class="text-left padding-bottom-zero clearfix text-overlay" >
+            <p ng-if="WidgetHome.showDescription()" ng-bind-html="WidgetHome.info.data.content.description | safeHtml"></p>
+        </div>
+        <div class="padded padding-top-zero text-overlay" style="padding: 0;">
+
+           <!-- <div ng-repeat="plugin in data.plugins" ng-click="navigateToPlugin(plugin)" ng-if="data.design.selectedLayout == 10" style="margin-top:2px;">
+                <div class="plugin-banner clearfix">
+                    <div class="plugin-slide text-center">
+                        <div class="blackLayer"></div>
+                        <div class="backgroundLayer" style="background:url('{{ cropImage(plugin.iconUrl? plugin.iconUrl : 'http://www.placehold.it/1280x400', {width: 640, height: 200}) }}');"></div>
+                        <img lazy-img="{{ cropImage(plugin.iconUrl? plugin.iconUrl : 'http://www.placehold.it/1280x400', {width: 640, height: 200}) }}">
+                        <p class="ellipsis item-text whiteTheme text-center">{{ plugin.title }}</p>
+                    </div>
+                </div>
+            </div>-->
+
+
+            <div ng-repeat="plugin in  WidgetHome.info.data.content.entity" style="margin-top:2px;">
+                <div ng-click="WidgetHome.navigateToPlugin(plugin)" ng-if="plugin.data">
+                    <div class="plugin-banner clearfix">
+                        <div class="plugin-slide text-center">
+                            <div class="blackLayer"></div>
+                            <div class="backgroundLayer" style="background:url('{{ WidgetHome.cropImage(plugin.data.iconUrl? plugin.data.iconUrl : '../../../styles/media/holder-4x1.png', {width: 640, height: 200}) }}');"></div>
+                            <img load-image="4x1" data-final-src="{{ plugin.data.iconUrl }}" ng-if="plugin.data.iconUrl" crop-width="640" crop-height="200" crop-type="crop">
+                            <img src="../../../styles/media/holder-4x1.png" ng-if="!plugin.data.iconUrl">
+                            <p class="ellipsis item-text whiteTheme text-center" ng-show="!WidgetHome.info.data.design.hideText">{{ plugin.data.title }}</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div ng-click="WidgetHome.goToFolder(plugin)" ng-if="plugin.items">
+                    <div class="plugin-banner clearfix">
+                        <div class="plugin-slide text-center">
+                            <div class="blackLayer"></div>
+                            <div class="backgroundLayer" style="background:url('{{ cropImage(plugin.iconUrl? plugin.iconUrl : '../../../styles/media/holder-4x1.png', {width: 640, height: 200}) }}');"></div>
+                            <img ng-if="plugin.fileUrl" load-image="4x1" data-final-src="{{ plugin.fileUrl }}" crop-width="640" crop-height="200" crop-type="crop">
+                            <img load-image="4x1" data-final-src="../../../styles/media/holder-4x1.png" ng-if="! plugin.fileUrl && plugin.items.length!=0" />
+	                        <img load-image="4x1" data-final-src="../../../styles/media/holder-4x1.png" ng-if="! plugin.fileUrl && plugin.items.length==0" />	                       
+                            <p class="ellipsis item-text whiteTheme text-center" ng-show="!WidgetHome.info.data.design.hideText">{{ plugin.title }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
