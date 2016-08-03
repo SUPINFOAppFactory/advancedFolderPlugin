@@ -2,7 +2,7 @@
 
 #1. Architecture/Technology stacks:
 
-* [BuildFire APIs](https://github.com/BuildFire/sdk/blob/master/scripts/buildfire.js)
+* [BuildFire APIs](https://github.com/SUPINFOAppFactory/sdk-master/blob/master/scripts/buildfire.js)
 * [AngularJS](https://docs.angularjs.org/guide)
 * [angular-ui-tree] (https://github.com/angular-ui-tree/angular-ui-tree)
 
