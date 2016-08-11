@@ -1,5 +1,9 @@
 
 
+###Plugin overview
+
+http://support.appdocumentation.com/knowledge-base/advanced-folder-plugin
+
 #1. Architecture/Technology stacks:
 
 * [BuildFire APIs](https://github.com/SUPINFOAppFactory/sdk-master/blob/master/scripts/buildfire.js)
@@ -11,12 +15,12 @@ Advance Folder API will provide us with verification and streaming of the Advanc
 In AngularJS, we will follow MVVM design pattern.
 
 Included methods of BuildFire’s API are
-* [buildfire.datastore](https://github.com/BuildFire/sdk/wiki/How-to-use-Datastore)
-* [buildfire.imageLib](https://github.com/BuildFire/sdk/wiki/How-to-use-ImageLib)
-* [buildfire.navigation](https://github.com/BuildFire/sdk/wiki/How-to-use-Navigation)
-* [buildfire.spinner](https://github.com/BuildFire/sdk/wiki/Spinners)
-* [buildfire.components.carousel](https://github.com/BuildFire/sdk/wiki/BuildFire-Carousel-Component)
-* [buildfire.messaging](https://github.com/BuildFire/sdk/wiki/How-to-use-Messaging-to-sync-your-Control-to-Widget)
+* [buildfire.datastore](https://github.com/SUPINFOAppFactory/sdk-master/wiki/How-to-use-Datastore)
+* [buildfire.imageLib](https://github.com/SUPINFOAppFactory/sdk-master/wiki/How-to-use-ImageLib)
+* [buildfire.navigation](https://github.com/SUPINFOAppFactory/sdk-master/wiki/How-to-use-Navigation)
+* [buildfire.spinner](https://github.com/SUPINFOAppFactory/sdk-master/wiki/Spinners)
+* [buildfire.components.carousel](https://github.com/SUPINFOAppFactory/sdk-master/wiki/BuildFire-Carousel-Component)
+* [buildfire.messaging](https://github.com/SUPINFOAppFactory/sdk-master/wiki/How-to-use-Messaging-to-sync-your-Control-to-Widget)
 
 For more information refer to SUPINFO AppFactory Wiki.
 
@@ -32,7 +36,7 @@ Angular-Animate is the angularjs module that will help us on performing animatio
 * **Refreshing**: Refreshing will be disabled for this plugin. We are using
 * **buildfire.datastore.onUpdate**: to subscribe to changes in buildfire database. Whenever there is change in the data, it will be updated in the widget/simulator.
 
-* **Styling**: UI Design will be done using [BuildFire-Style-Helper-Documentation](https://github.com/BuildFire/sdk/wiki/BuildFire-Style-Helper-Documentation). It has pre build style classes that we can use to improve UX of the plugin.
+* **Styling**: UI Design will be done using [BuildFire-Style-Helper-Documentation](https://github.com/SUPINFOAppFactory/sdk-master/wiki/BuildFire-Style-Helper-Documentation). It has pre build style classes that we can use to improve UX of the plugin.
 
 
 
